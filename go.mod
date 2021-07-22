@@ -1,3 +1,3 @@
-module dmachard/go-topmap
+module github.com/dmachard/go-topmap
 
 go 1.16
