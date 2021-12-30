@@ -53,6 +53,18 @@ func (q *TopMap) FindMin() {
 	q.minindex = minkey
 }
 
+func (q *TopMap) Inc(name string) {
+
+	hit := 1
+	q.Lock()
+	if _, ok := q.items[name]; ok {
+		hit = q.items[name] + 1
+	}
+	q.Unlock()
+
+	q.Record(name, hit)
+}
+
 func (q *TopMap) Record(name string, hit int) {
 	q.Lock()
 	defer q.Unlock()

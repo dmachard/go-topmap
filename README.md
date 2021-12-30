@@ -20,10 +20,14 @@ tmap := NewTopMap(5)
 tmap.Record("oranges", 2)
 tmap.Record("apples", 10)
 
+// incremente items
+tmap.Inc("oranges")
+
+
 // get items
 items = tmap.Get()
 fmt.Println(items)
-[{apples 10} {oranges 2}]
+[{apples 10} {oranges 3}]
 ```
 
 ## Testing
@@ -31,6 +35,8 @@ fmt.Println(items)
 ```bash
 === RUN   TestTopMapRecord
 --- PASS: TestTopMapRecord (0.00s)
+=== RUN   TestTopMapInc
+--- PASS: TestTopMapInc (0.00s)
 === RUN   TestTopMapGetSorted
 --- PASS: TestTopMapGetSorted (0.00s)
 === RUN   TestTopMapRecordMax
@@ -49,7 +55,13 @@ cpu: Intel(R) Core(TM) i5-7200U CPU @ 2.50GHz
 BenchmarkTopMapRecord/TopMapSize:_10_-4                  4745701               247.1 ns/op
 BenchmarkTopMapRecord/TopMapSize:_100_-4                  604754              1761 ns/op
 BenchmarkTopMapRecord/TopMapSize:_1000_-4                  56764             21874 ns/op
+BenchmarkTopMapRecord/TopMapSize:_10000_-4                 13870      
+
+BenchmarkTopMapRecord/TopMapSize:_10_-4                  4745701               247.1 ns/op
+BenchmarkTopMapRecord/TopMapSize:_100_-4                  604754              1761 ns/op
+BenchmarkTopMapRecord/TopMapSize:_1000_-4                  56764             21874 ns/op
 BenchmarkTopMapRecord/TopMapSize:_10000_-4                 13870            113485 ns/op
+
 BenchmarkTopMapGet/TopMapSize:_10_-4                     1012234              1264 ns/op
 BenchmarkTopMapGet/TopMapSize:_100_-4                      75252             15170 ns/op
 BenchmarkTopMapGet/TopMapSize:_1000_-4                      5414            199167 ns/op
