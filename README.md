@@ -1,3 +1,5 @@
+<img src="https://img.shields.io/badge/go%20version-min%201.21-green" alt="Go version"/>
+
 # go-topmap
 
 Top items map (string of int), can be used to maintain a list of counters and get the top N items.
